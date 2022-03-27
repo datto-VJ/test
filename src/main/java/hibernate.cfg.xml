@@ -7,5 +7,6 @@
 		<property name="hibernate.connection.username">root</property>
 		<property name="hibernate.connection.password"></property>
 		<mapping class="domain.ProductEntity" />
+		<mapping class="domain.CategoryEntity" />
 	</session-factory>
 </hibernate-configuration>

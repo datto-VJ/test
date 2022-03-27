@@ -7,6 +7,9 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -18,8 +21,9 @@ public class ProductEntity implements Serializable {
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
 	@Column(name = "ProductId")
 	private int productId;
-	@Column(name="CategoryId")
-	private int categoryId;
+	@ManyToOne
+	@JoinColumn(name="CategoryId")
+	private CategoryEntity category;
 	@Column(name = "PublisherId")
 	private int publisherId;
 	@Column(name = "AuthorId")
@@ -56,12 +60,12 @@ public class ProductEntity implements Serializable {
 		this.productId = productId;
 	}
 
-	public int getCategoryId() {
-		return categoryId;
+	public CategoryEntity getCategory() {
+		return category;
 	}
 
-	public void setCategoryId(int categoryId) {
-		this.categoryId = categoryId;
+	public void setCategory(CategoryEntity category) {
+		this.category = category;
 	}
 
 	public int getPublisherId() {
@@ -160,5 +164,6 @@ public class ProductEntity implements Serializable {
 		this.price = price;
 	}
 	
+
 	
 }

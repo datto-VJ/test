@@ -12,8 +12,8 @@ import utils.HibernateUtils;
 public class ProductRepository {
 	public List<ProductEntity> findAll(){
 		try(Session session = HibernateUtils.getSessionFactory().openSession()){
-			Query query = session.createQuery("from ProductEntity");
-			return query.list();
+			List products = session.createQuery("from ProductEntity").list();
+			return products;
 		}
 	}
 	
