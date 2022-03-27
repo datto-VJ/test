@@ -1,5 +1,7 @@
 package domain;
 
+import java.io.Serializable;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -9,125 +11,154 @@ import javax.persistence.Table;
 
 @Entity
 @Table(name="Product")
-public class ProductEntity {
+public class ProductEntity implements Serializable {
+	private static final long serialVersionUID = 1L;
 
 	@Id
 	@GeneratedValue(strategy= GenerationType.IDENTITY)
-	@Column
-	private int ProductId;
-	@Column
-	private int CategoryId;
-	@Column
-	private int PublisherId;
-	@Column
-	private int AuthorId;
-	@Column
-	private String ISBN;
-	@Column
-	private String Title;
-	@Column
-	private String Pages;
-	@Column
-	private String Year;
-	@Column
-	private String Weight;
-	@Column
-	private String Size;
-	@Column
-	private String Description;
-	@Column
-	private String Content;
-	@Column
-	private String ImageUrl;
-	@Column
-	private int Price;
+	@Column(name = "ProductId")
+	private int productId;
+	@Column(name="CategoryId")
+	private int categoryId;
+	@Column(name = "PublisherId")
+	private int publisherId;
+	@Column(name = "AuthorId")
+	private int authorId;
+	@Column(name = "ISBN", length = 16)
+	private String isbn;
+	@Column(name = "Title", length = 128)
+	private String title;
+	@Column(name = "Pages")
+	private int pages;
+	@Column(name = "Year")
+	private int year;
+	@Column(name = "Weight", length = 32)
+	private String weight;
+	@Column(name = "Size", length = 16)
+	private String size;
+	@Column(name = "Description", length = 1024)
+	private String description;
+	@Column(name = "Content", length = 2048)
+	private String content;
+	@Column(name = "ImageUrl", length = 128)
+	private String imageUrl;
+	@Column(name="Price")
+	private int price;
 	
 	public ProductEntity() {
 	}
-	
+
 	public int getProductId() {
-		return ProductId;
+		return productId;
 	}
+
 	public void setProductId(int productId) {
-		ProductId = productId;
+		this.productId = productId;
 	}
+
 	public int getCategoryId() {
-		return CategoryId;
+		return categoryId;
 	}
+
 	public void setCategoryId(int categoryId) {
-		CategoryId = categoryId;
+		this.categoryId = categoryId;
 	}
+
 	public int getPublisherId() {
-		return PublisherId;
+		return publisherId;
 	}
+
 	public void setPublisherId(int publisherId) {
-		PublisherId = publisherId;
+		this.publisherId = publisherId;
 	}
+
 	public int getAuthorId() {
-		return AuthorId;
+		return authorId;
 	}
+
 	public void setAuthorId(int authorId) {
-		AuthorId = authorId;
+		this.authorId = authorId;
 	}
-	public String getISBN() {
-		return ISBN;
+
+	public String getIsbn() {
+		return isbn;
 	}
-	public void setISBN(String iSBN) {
-		ISBN = iSBN;
+
+	public void setIsbn(String isbn) {
+		this.isbn = isbn;
 	}
+
 	public String getTitle() {
-		return Title;
+		return title;
 	}
+
 	public void setTitle(String title) {
-		Title = title;
+		this.title = title;
 	}
-	public String getPages() {
-		return Pages;
+
+	public int getPages() {
+		return pages;
 	}
-	public void setPages(String pages) {
-		Pages = pages;
+
+	public void setPages(int pages) {
+		this.pages = pages;
 	}
-	public String getYear() {
-		return Year;
+
+	public int getYear() {
+		return year;
 	}
-	public void setYear(String year) {
-		Year = year;
+
+	public void setYear(int year) {
+		this.year = year;
 	}
+
 	public String getWeight() {
-		return Weight;
+		return weight;
 	}
+
 	public void setWeight(String weight) {
-		Weight = weight;
+		this.weight = weight;
 	}
+
 	public String getSize() {
-		return Size;
+		return size;
 	}
+
 	public void setSize(String size) {
-		Size = size;
+		this.size = size;
 	}
+
 	public String getDescription() {
-		return Description;
+		return description;
 	}
+
 	public void setDescription(String description) {
-		Description = description;
+		this.description = description;
 	}
+
 	public String getContent() {
-		return Content;
+		return content;
 	}
+
 	public void setContent(String content) {
-		Content = content;
+		this.content = content;
 	}
+
 	public String getImageUrl() {
-		return ImageUrl;
+		return imageUrl;
 	}
+
 	public void setImageUrl(String imageUrl) {
-		ImageUrl = imageUrl;
+		this.imageUrl = imageUrl;
 	}
+
 	public int getPrice() {
-		return Price;
+		return price;
 	}
+
 	public void setPrice(int price) {
-		Price = price;
+		this.price = price;
 	}
+	
 	
 }

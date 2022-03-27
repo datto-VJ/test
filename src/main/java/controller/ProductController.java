@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import dao.ProductRepository;
@@ -28,17 +30,17 @@ public class ProductController {
 	}
 	
 	@PostMapping("api/product")
-	public int post(ProductEntity product) {
+	public int post(@RequestBody ProductEntity product) {
 		return repository.add(product);
 	}
 	
 	@PutMapping("api/product")
-	public int update(ProductEntity product) {
+	public int update(@RequestBody ProductEntity product) {
 		return repository.update(product);
 	}
 	
 	@DeleteMapping("api/product")
-	public int delete(int id) {
-		return repository.delete(id);
+	public int delete(@RequestBody int productId) {
+		return repository.delete(productId);
 	}
 }
