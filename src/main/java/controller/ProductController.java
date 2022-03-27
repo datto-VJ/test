@@ -29,7 +29,6 @@ public class ProductController {
 	
 	@PostMapping("api/product")
 	public int post(ProductEntity product) {
-		System.out.println(product);
 		return repository.add(product);
 	}
 	
@@ -38,7 +37,7 @@ public class ProductController {
 		return repository.update(product);
 	}
 	
-	@DeleteMapping("apu/product")
+	@DeleteMapping("api/product")
 	public int delete(int id) {
 		return repository.delete(id);
 	}
